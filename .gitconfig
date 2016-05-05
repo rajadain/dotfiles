@@ -2,6 +2,8 @@
 	name = Terence Tuhinanshu
 	email = terence@tuhinanshu.com
 [alias]
+	changed = !"git status -s | grep --color \"^[? ][AMDR?]\""
+	staged = !"git status -s | grep --color \"^[AMDR]\""
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [push]
 	default = simple
