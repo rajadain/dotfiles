@@ -1,5 +1,5 @@
 function __parse_git_branch
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 end
 
 function fish_prompt --description 'Write out the prompt'
