@@ -1,0 +1,25 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/.vagrant": true,
+        "**/.idea": true,
+        "**/node_modules": true
+    },
+
+    "editor.fontFamily": "Hasklig",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [79],
+    "editor.scrollBeyondLastLine": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "explorer.openEditors.visible": 0,
+
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "vscode-icons"
+}
