@@ -7,5 +7,13 @@ function notify -d "Send macOS notification with optional text"
         set message $argv
     end
 
-    osascript -e "display notification \"$message at $timestamp\" with title \"iTerm\""
+    terminal-notifier \
+        # Disabled until this is fixed:
+        # https://github.com/julienXX/terminal-notifier/issues/223
+        # -sender "com.googlecode.iterm2" \
+        # -activate "com.googlecode.iterm2" \
+        # -timeout 60 \
+        -title "iTerm" \
+        -subtitle "$timestamp" \
+        -message "$message"
 end
