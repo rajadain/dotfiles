@@ -18,3 +18,5 @@
 	oldHighlight = red 52
 	newNormal = green
 	newHighlight = green 22
+[core]
+	excludesfile = ~/.gitignore
