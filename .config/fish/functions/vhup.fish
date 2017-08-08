@@ -6,7 +6,7 @@ function vhup -d "Halts current vagrant, ups another"
     else
         set -l project ~/dev/$argv[1]
         if test -f $project/Vagrantfile
-            vagrant halt; and cd $project; and vagrant up
+            vagrant halt; and cd $project; and vagrant up; and notify $project
         else
             echo "Could not find Vagrant project $project"
         end
