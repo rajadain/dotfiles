@@ -11,8 +11,6 @@
 	sh = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git show --color \"$@\" | diff-so-fancy  | less --tabs=4 -R; }; f"
 [push]
 	default = simple
-[commit]
-	gpgsign = true
 [color "diff-highlight"]
 	oldNormal = red
 	oldHighlight = red 52
@@ -20,3 +18,8 @@
 	newHighlight = green 22
 [core]
 	excludesfile = ~/.gitignore
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
