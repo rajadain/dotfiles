@@ -33,10 +33,8 @@
 	excludesfile = ~/.gitignore
 	editor = micro
 [pager]
-    diff = delta
     log = delta
     reflog = delta
-    show = delta
 [delta]
 	light = false
 	features = line-numbers decorations # side-by-side 
