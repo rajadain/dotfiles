@@ -6,3 +6,5 @@
 .vscode/
 /scratch/
 .config/fish/functions/_*.fish
+.metals/
+.env/

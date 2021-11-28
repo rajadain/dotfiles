@@ -1,24 +1,62 @@
 [user]
 	name = Terence Tuhinanshu
-	email = terence@tuhinanshu.com
-	signingkey = 48AD5DBE
+	email = ttuhinanshu@azavea.com
+	signingkey = F45D221F
 [alias]
+	lg = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git --no-pager log --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit \"$@\" | diff-so-fancy | less --tabs=4 -R; }; f"
+	mymerges = !git lg --grep Merge --author Tuhinanshu
 	changed = !"git status -s | grep --color \"^[? ][AMDR?]\""
 	staged = !"git status -s | grep --color \"^[AMDR]\""
-	lg = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git --no-pager log --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit \"$@\" | diff-so-fancy  | less --tabs=4 -R; }; f"
-	mymerges = !git lg --grep Merge --author Tuhinanshu
-	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -R; }; f"
-	sh = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git show --color \"$@\" | diff-so-fancy  | less --tabs=4 -R; }; f"
+	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | delta | less --tabs=4 -R; }; f"
+	sh = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git show --color \"$@\" | delta  | less --tabs=4 -R; }; f"
+	fg = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git-foresta --style=2 | delta  | less --tabs=4 -R; }; f"
+[core]
+	excludesfile = /Users/ttuhinanshu/.gitignore
+	commitGraph = true
+	pager = less --tabs=4 -R
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [push]
 	default = simple
 [pull]
 	ff = only
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
 [commit]
 	gpgsign = true
+	template = /Users/ttuhinanshu/.stCommitMsg
+[color]
+	ui = true
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red
+	new = green
+	whitespace = red reverse
 [color "diff-highlight"]
 	oldNormal = red
-	oldHighlight = red 52
+	oldHighlight = white bold 52
 	newNormal = green
-	newHighlight = green 22
-[core]
-	excludesfile = ~/.gitignore
+	newHighlight = white bold 22
+[gpg]
+	program = /usr/local/MacGPG2/bin/gpg2
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+	light = false
+	features = line-numbers decorations # side-by-side 
+	whitespace-error-style = 22 reverse
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
