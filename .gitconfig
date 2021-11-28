@@ -14,6 +14,7 @@
 	excludesfile = /Users/ttuhinanshu/.gitignore
 	commitGraph = true
 	pager = less --tabs=4 -R
+	editor = micro
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -31,7 +32,6 @@
 	process = git-lfs filter-process
 [commit]
 	gpgsign = true
-	template = /Users/ttuhinanshu/.stCommitMsg
 [color]
 	ui = true
 [color "diff"]
