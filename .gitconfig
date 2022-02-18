@@ -1,7 +1,7 @@
 [user]
 	name = Terence Tuhinanshu
-	email = ttuhinanshu@azavea.com
-	signingkey = F45D221F
+	email = terence@tuhinanshu.com
+	signingkey = 48AD5DBE
 [alias]
 	lg = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git --no-pager log --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit \"$@\" | diff-so-fancy | less --tabs=4 -R; }; f"
 	mymerges = !git lg --grep Merge --author Tuhinanshu
