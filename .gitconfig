@@ -11,7 +11,7 @@
 	sh = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git show --color \"$@\" | delta  | less --tabs=4 -R; }; f"
 	fg = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git-foresta --style=2 | delta  | less --tabs=4 -R; }; f"
 [core]
-	excludesfile = /Users/ttuhinanshu/.gitignore
+	excludesfile = /Users/rajadain/.gitignore
 	commitGraph = true
 	pager = less --tabs=4 -R
 	editor = micro
