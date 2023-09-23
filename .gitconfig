@@ -2,6 +2,8 @@
 	name = Terence Tuhinanshu
 	email = terence@tuhinanshu.com
 	signingkey = 48AD5DBE
+[includeIf "gitdir:~/dev/e84/"]
+	path = "~/dev/e84/.gitconfig"
 [alias]
 	lg = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git --no-pager log --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit \"$@\" | diff-so-fancy | less --tabs=4 -R; }; f"
 	mymerges = !git lg --grep Merge --author Tuhinanshu
@@ -23,6 +25,7 @@
 	trustExitCode = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [pull]
 	ff = only
 [filter "lfs"]
@@ -54,6 +57,7 @@
     diffFilter = delta --color-only
 [delta]
 	light = false
+	syntax-theme = ansi
 	features = line-numbers decorations # side-by-side 
 	whitespace-error-style = 22 reverse
 [delta "decorations"]
