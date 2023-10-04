@@ -11,6 +11,7 @@
 	sh = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git show --color \"$@\" | delta  | less --tabs=4 -R; }; f"
 [push]
 	default = simple
+	autoSetupRemote = true
 [pull]
 	ff = only
 [commit]
