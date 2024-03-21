@@ -5,5 +5,7 @@
 .vagrant/
 .vscode/
 /scratch/
+/.scratch/
 .config/fish/functions/_*.fish
 .venv/
+.metals/
