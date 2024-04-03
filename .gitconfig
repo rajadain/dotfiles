@@ -1,7 +1,6 @@
 [user]
 	name = Terence Tuhinanshu
 	email = terence@tuhinanshu.com
-	signingkey = 48AD5DBE
 [alias]
 	changed = !"git status -s | grep --color \"^[? ][AMDR?]\""
 	staged = !"git status -s | grep --color \"^[AMDR]\""
@@ -47,3 +46,7 @@
     diffFilter = delta --color-only
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	defaultKeyCommand = ssh-add -L
