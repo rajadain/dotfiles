@@ -1,7 +1,7 @@
 [user]
 	name = Terence Tuhinanshu
 	email = terence@tuhinanshu.com
-	signingkey = 48AD5DBE
+	signingkey = /home/rajadain/.ssh/id_ed25519.pub
 [alias]
 	lg = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git --no-pager log --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit \"$@\" | diff-so-fancy | less --tabs=4 -R; }; f"
 	mymerges = !git lg --grep Merge --author Tuhinanshu
@@ -11,16 +11,10 @@
 	sh = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git show --color \"$@\" | delta  | less --tabs=4 -R; }; f"
 	fg = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git-foresta --style=2 | delta  | less --tabs=4 -R; }; f"
 [core]
-	excludesfile = /Users/rajadain/.gitignore
+	excludesfile = /home/rajadain/.gitignore
 	commitGraph = true
 	pager = less --tabs=4 -R
 	editor = micro
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [push]
 	default = simple
 [pull]
@@ -47,11 +41,11 @@
 	newNormal = green
 	newHighlight = white bold 22
 [gpg]
-	program = /usr/local/MacGPG2/bin/gpg2
+	format = ssh
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 [delta]
 	light = false
 	features = line-numbers decorations # side-by-side 
