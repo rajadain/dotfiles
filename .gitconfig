@@ -12,6 +12,8 @@
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | delta | less --tabs=4 -R; }; f"
 	sh = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git show --color \"$@\" | delta  | less --tabs=4 -R; }; f"
 	fg = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git-foresta --style=2 | delta  | less --tabs=4 -R; }; f"
+[branch]
+	sort = -committerdate
 [core]
 	excludesfile = /Users/ttuhinanshu/.gitignore
 	commitGraph = true
@@ -35,6 +37,7 @@
 	process = git-lfs filter-process
 [commit]
 	gpgsign = true
+	template = /Users/ttuhinanshu/.stCommitMsg
 [color]
 	ui = true
 [color "diff"]
@@ -56,7 +59,7 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-	light = false
+	light = true
 	syntax-theme = ansi
 	features = line-numbers decorations # side-by-side 
 	whitespace-error-style = 22 reverse

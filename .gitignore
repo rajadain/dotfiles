@@ -8,3 +8,4 @@
 .config/fish/functions/_*.fish
 .metals/
 .venv/
+pyrightconfig.json
