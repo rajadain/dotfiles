@@ -1,7 +1,7 @@
 [user]
 	name = Terence Tuhinanshu
 	email = terence@tuhinanshu.com
-	signingkey = 48AD5DBE
+	signingkey = /home/rajadain/.ssh/id_ed25519.pub
 [includeIf "gitdir:~/dev/e84/"]
 	path = "~/dev/e84/.gitconfig"
 [alias]
@@ -16,16 +16,10 @@
 [branch]
 	sort = -committerdate
 [core]
-	excludesfile = /Users/ttuhinanshu/.gitignore
+	excludesfile = /home/rajadain/.gitignore
 	commitGraph = true
 	pager = less --tabs=4 -R
 	editor = micro
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [push]
 	default = simple
 	autoSetupRemote = true
@@ -36,9 +30,6 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
-[commit]
-	gpgsign = true
-	template = /Users/ttuhinanshu/.stCommitMsg
 [color]
 	ui = true
 [color "diff"]
@@ -53,14 +44,12 @@
 	oldHighlight = white bold 52
 	newNormal = green
 	newHighlight = white bold 22
-[gpg]
-	program = /usr/local/MacGPG2/bin/gpg2
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [interactive]
     diffFilter = delta --color-only
 [delta]
-	light = true
+	light = false
 	syntax-theme = ansi
 	features = line-numbers decorations # side-by-side 
 	whitespace-error-style = 22 reverse
@@ -68,3 +57,7 @@
 	commit-decoration-style = bold yellow box ul
 	file-style = bold yellow ul
 	file-decoration-style = none
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
