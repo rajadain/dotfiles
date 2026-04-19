@@ -1,0 +1,11 @@
+# 1. Always ignore Mac junk files everywhere
+- .DS_Store
+- ._*
+- .TemporaryItems/**
+- .Trashes/**
+
+# 2. Include folders starting with a 4-digit year and all their contents
++ [0-9][0-9][0-9][0-9]*/**
+
+# 3. Exclude everything else that didn't match the year pattern
+- **
